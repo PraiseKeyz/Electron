@@ -2,8 +2,15 @@
 # import json
 from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
+
+MONGO_URI = os.getenv("MONGO_URI")
 # MongoDB Connection
 client = MongoClient("mongodb+srv://praiseoluwatobilobaadebayo:uN9ALRzFxQ8I61kQ@cluster0.jkfis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["chemistry_db"]

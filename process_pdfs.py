@@ -3,11 +3,13 @@ import fitz  # PyMuPDF
 import nltk
 from nltk.tokenize import sent_tokenize
 from pymongo import MongoClient
+from dotenv import load_dotenv
   
- # Download tokenizer
+load_dotenv()
 
-# Database setup
-client = MongoClient("mongodb+srv://praiseoluwatobilobaadebayo:uN9ALRzFxQ8I61kQ@cluster0.jkfis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+MONGO_URI = os.getenv("MONGO_URI")
+# MongoDB Connection
+client = MongoClient(MONGO_URI)
 db = client["chemistry_db"]
 collection = db["course_chunks"]
 

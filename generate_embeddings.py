@@ -12,7 +12,7 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 
 MONGO_URI = os.getenv("MONGO_URI")
 # MongoDB Connection
-client = MongoClient("mongodb+srv://praiseoluwatobilobaadebayo:uN9ALRzFxQ8I61kQ@cluster0.jkfis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = MongoClient(MONGO_URI)
 db = client["chemistry_db"]
 chunks_collection = db["course_chunks"]  # Collection where text is stored
 vector_collection = db["vector_store"]   # Collection to store embeddings
